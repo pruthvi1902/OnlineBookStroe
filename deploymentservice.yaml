@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: spring-boot-k8s-deployment
+  name: online-bookstore
 spec:
   selector:
     matchLabels:
-      app: spring-boot-k8s
+      app: online-bookstore
   replicas: 2 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: spring-boot-k8s
+        app: online-bookstore
     spec:
       containers:
-        - name: spring-boot-k8s
+        - name: online-book
           image: pruthvi1902/online-book # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
@@ -24,11 +24,11 @@ spec:
 apiVersion: v1
 kind: Service 
 metadata: 
-  name: springboot-k8ssvc
+  name: online-svc
 spec:
   type: NodePort
   selector:
-    app: spring-boot-k8s
+    app: online-bookstore
   ports:
     - nodePort: 30163
       port: 8080 

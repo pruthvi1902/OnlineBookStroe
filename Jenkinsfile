@@ -7,14 +7,14 @@ pipeline {
     stages{
         stage('Build Maven'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/pruthvi1902/devops-automation.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/pruthvi1902/OnlineBookStroe.git']]])
                 sh 'mvn clean install'
             }
         }
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t pruthvi1902/kubernetes .'
+                    sh 'docker build -t pruthvi1902/online-book .'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
                     sh 'docker login -u pruthvi1902 -p ${dockerhubpwd}'
                         
                     }
-                    sh 'docker push pruthvi1902/kubernetes'
+                    sh 'docker push pruthvi1902/online-book'
                 }
             }
         }

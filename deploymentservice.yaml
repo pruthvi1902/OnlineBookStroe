@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: online-bookstore
+  name: online-book
 spec:
   selector:
     matchLabels:
-      app: online-bookstore
+      app: online-book
   replicas: 2 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: online-bookstore
+        app: online-book
     spec:
       containers:
         - name: online-book

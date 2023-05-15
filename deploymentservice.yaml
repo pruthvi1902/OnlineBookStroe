@@ -14,7 +14,9 @@ spec:
     spec:
       containers:
         - name: online-bookstore
-          image: pruthvi1902/online-book # Image that will be used to containers in the cluster
+          image: pruthvi1902
+/
+online-book # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080 # The port that the container is running on in the cluster

@@ -5,7 +5,7 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copy the WAR file to the container
-COPY onlinebookstore-0.0.1-SNAPSHOT.war .
+ADD onlinebookstore-0.0.1-SNAPSHOT.war .
 
 # Set the entry point to run the WAR file with the java command
 ENTRYPOINT ["java", "-jar", "onlinebookstore-0.0.1-SNAPSHOT.war"]
